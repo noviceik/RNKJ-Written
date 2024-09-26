@@ -42,8 +42,9 @@ import { useRouter } from 'vue-router';
 import 'pdfjs-dist/web/pdf_viewer.css';
 import * as PDF from 'pdfjs-dist';
 import { ElMessage } from 'element-plus'
+const pdfjsWorker = import('pdfjs-dist/build/pdf.worker.entry');
 
-PDF.GlobalWorkerOptions.workerSrc = '/node_modules/pdfjs-dist/build/pdf.worker.min.js';
+PDF.GlobalWorkerOptions.workerSrc = pdfjsWorker
 
 const props = defineProps({
   fileList: {
