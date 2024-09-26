@@ -75,6 +75,7 @@ function loadFile(file, isDecrypt) {
   }).promise.then((pdf) => {
       file.pageCount = pdf.numPages;
       file.info = pdf;
+      console.log('pdf', pdf);
       if (isDecrypt) {
         decryptVisible.value = false;
         file.state = 'decrypt';
@@ -90,6 +91,7 @@ function loadFile(file, isDecrypt) {
         file.state = 'success';
       }
   }).catch((err) => {
+      console.log('err', err);
       file.state = 'error';
       file.password = '';
       if (isDecrypt) {
